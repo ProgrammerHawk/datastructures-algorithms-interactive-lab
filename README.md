@@ -1,5 +1,7 @@
 # datastructures-algorithms-interactive-lab
-An interactive web app to learn data structures and algorithms for a high school course. It has a JAVA playground and no third party library dependencies
+An interactive web app to learn data structures and algorithms for a high school course. It has a JAVA playground and no third party library dependencies.  
+The data structures and algorithm examples were derived from the portfolio we made for the course in class.  
+
 
   Click on the link to open the Web App.  
   __https://programmerhawk.github.io/datastructures-algorithms-interactive-lab/#stack__  
