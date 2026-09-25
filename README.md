@@ -5,6 +5,10 @@ A PSEUDOCODE window shows the lines highlighted as the animation runs.
 A playground window supports a minimal JAVA interpreter that was required for the class.  
 
 
+The Datastructures_Portfolio contains my class notes.  
+The has_table_project_java contains my JAVA implementation of a car VIN hashing algorithm project.  
+
+
   Click on the link to open the Web App.  
   __https://programmerhawk.github.io/datastructures-algorithms-interactive-lab/#stack__  
 
