@@ -1,6 +1,8 @@
 # datastructures-algorithms-interactive-lab
 An interactive web app to learn data structures and algorithms for a high school course. It has a JAVA playground and no third party library dependencies.  
 The data structures and algorithm examples were derived from the portfolio we made for the course in class.  
+A PSEUDOCODE window shows the lines highlighted as the animation runs.  
+A playground window supports a minimal JAVA interpreter that was required for the class.  
 
 
   Click on the link to open the Web App.  
