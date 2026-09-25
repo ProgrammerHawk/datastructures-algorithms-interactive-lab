@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="Anirudh Iyengar" />
+<title>DSA Lab — Interactive Data Structures &amp; Algorithms</title>
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <aside id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">DS</div>
+      <div>
+        <h1>DSA Lab</h1>
+        <p>Interactive study companion</p>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <input id="search" type="search" placeholder="Search lessons…" autocomplete="off" />
+    </div>
+
+    <nav id="nav"></nav>
+
+    <div class="sidebar-foot">
+      <div class="progress-row">
+        <span>Progress</span>
+        <span id="progressLabel">0 / 0</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <button id="resetProgress" class="link-btn">Reset progress</button>
+
+      <div class="author">
+        <div class="author-mark">AI</div>
+        <div class="author-meta">
+          <span class="author-name">Anirudh Iyengar</span>
+          <span class="author-role">Cupertino High School Junior</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main">
+    <header id="topbar">
+      <button id="menuBtn" class="icon-btn" aria-label="Toggle menu">☰</button>
+      <div class="crumbs">
+        <span id="crumbModule">—</span>
+        <span class="crumb-sep">/</span>
+        <span id="crumbLesson">—</span>
+      </div>
+      <div class="topbar-actions">
+        <button id="prevLesson" class="ghost-btn">← Prev</button>
+        <button id="markDone" class="ghost-btn">Mark complete</button>
+        <button id="nextLesson" class="ghost-btn">Next →</button>
+      </div>
+    </header>
+
+    <div id="lessonRoot">
+
+      <section class="hero" id="hero">
+        <h2 id="lessonTitle">Loading…</h2>
+        <p id="lessonBlurb"></p>
+        <div id="lessonTags" class="tag-row"></div>
+      </section>
+
+      <div class="split">
+
+        <!-- LEFT: notes -->
+        <section class="panel notes-panel">
+          <div class="panel-head">
+            <h3>Concept notes</h3>
+            <span class="panel-hint">from the portfolio</span>
+          </div>
+          <div id="notes" class="notes"></div>
+          <div id="complexity" class="complexity"></div>
+        </section>
+
+        <!-- RIGHT: visualization -->
+        <section class="panel viz-panel">
+          <div class="panel-head">
+            <h3>Visualization</h3>
+            <span id="vizHint" class="panel-hint"></span>
+          </div>
+
+          <div id="controls" class="controls"></div>
+
+          <div class="stage-wrap">
+            <svg id="stage" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"></svg>
+            <div id="stageOverlay" class="stage-overlay"></div>
+          </div>
+
+          <div id="caption" class="caption">Choose an operation to begin.</div>
+
+          <div class="player">
+            <button id="pStart" class="p-btn" title="Restart">⏮</button>
+            <button id="pPrev"  class="p-btn" title="Step back">◀</button>
+            <button id="pPlay"  class="p-btn primary" title="Play / pause">▶</button>
+            <button id="pNext"  class="p-btn" title="Step forward">▶|</button>
+            <input id="pScrub" class="scrub" type="range" min="0" max="0" value="0" />
+            <span id="pCount" class="p-count">0 / 0</span>
+            <label class="speed">
+              Speed
+              <select id="pSpeed">
+                <option value="0.5">0.5×</option>
+                <option value="1" selected>1×</option>
+                <option value="2">2×</option>
+                <option value="4">4×</option>
+              </select>
+            </label>
+          </div>
+
+          <div id="legend" class="legend"></div>
+
+          <div id="trace" class="trace"></div>
+        </section>
+      </div>
+
+      <!-- Pseudocode + Playground -->
+      <div class="split">
+        <section class="panel">
+          <div class="panel-head">
+            <h3>Pseudocode</h3>
+            <span class="panel-hint">highlights as the animation runs</span>
+          </div>
+          <pre id="pseudo" class="pseudo"></pre>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h3>Code playground &mdash; Java</h3>
+            <span class="panel-hint">edit &amp; run — results checked live</span>
+          </div>
+
+          <div class="editor-wrap">
+            <div class="gutter" id="gutter"></div>
+            <pre class="hl" id="hl" aria-hidden="true"></pre>
+            <textarea id="editor" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+          </div>
+
+          <div class="run-row">
+            <button id="runBtn" class="run-btn">▶ Run tests</button>
+            <button id="resetCode" class="ghost-btn">Reset code</button>
+            <span id="runSummary" class="run-summary"></span>
+          </div>
+
+          <div id="testResults" class="test-results"></div>
+          <div class="console-head">Console</div>
+          <pre id="consoleOut" class="console-out"></pre>
+        </section>
+      </div>
+
+      <!-- Quiz -->
+      <section class="panel quiz-panel">
+        <div class="panel-head">
+          <h3>Check yourself</h3>
+          <span id="quizScore" class="panel-hint"></span>
+        </div>
+        <div id="quiz" class="quiz"></div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/util.js"></script>
+<script src="js/player.js"></script>
+<script src="js/java.js"></script>
+<script src="js/runner.js"></script>
+<script src="js/lessons/linear.js"></script>
+<script src="js/lessons/hashing.js"></script>
+<script src="js/lessons/trees.js"></script>
+<script src="js/lessons/graphs.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
